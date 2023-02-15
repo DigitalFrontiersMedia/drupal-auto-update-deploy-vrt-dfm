@@ -24,12 +24,13 @@ Scripts associated with setting up a Drupal automatic update and deployment proc
 ## TODO
    - Create PC equivalents for Calendar, AppleScript, possibly BASH portions (depending on client config)
    - Provide DDEV command equivalents for Docksal commands
-   - Abstract the site list and deployment commands (currently done with terminus) so that one could port this to any hosting provider with a good API.
+   - Abstract the site list and deployment commands (currently done with Terminus) so that one could port this to any hosting provider with a good API.
    - Potentially replace Wraith with a more modern VRT tool
    
 ## Assumptions
 1. Using a Mac
 2. Using Docksal as the local development environment on your sites
+3. Sites are hosted on Pantheon and Pantheon's Terminus CLI tool is installed.
 
 ## Steps to Setup
 1. Save the `update-sites.sh` file from this repo to /usr/local/bin or your desired shell executable path.  Make sure it has proper ownership and permissions to be executed by your computer user account.
