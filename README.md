@@ -3,23 +3,23 @@
 Scripts associated with setting up a Drupal automatic update and deployment process with Visual Regression Testing.  Useful for Pantheon users who do not have access to AutoPilot.
 
 ## Rundown
-   • This process is geared toward Mac users.
-   • The Mac’s Battery/Energy settings are set to power-on and/or wake computer a few minutes before your decided update time, e.g. 6:55am on Thursdays for a 7am update time.
-   • An Apple Calendar repeating event is set, e.g. every Thursday at 7am.  This could have been done with a crontab, but those are deprecated and the new recommended method just seemed overly complex and I liked being able to see it listed in my Calendar along with the pop-up alert and ability to easily change the day using the Calendar UI.
-   • Calendar pops up an alert at the specified date/time and runs an AppleScript.
-   • The AppleScript opens iTerm2 if not already open, opens a new session window and executes a shell script.
-   • The shell script retrieves a list of sites hosted on Pantheon.
-   • It iterates through each site:
-       • applies any upstream updates
-       • fires up Docksal environment
-       • pulls latest code from DEV
-       • runs composer update
-       • pushes code updates to DEV
-       • deploys code updates to TEST with content backsync from LIVE and drush updatedb
-       • runs a Wraith Visual Regression Test (VRT) between TEST and LIVE
-       • deploys code updates to LIVE if VRT passes (adds site to list to review if not)
-   • Provides list of sites that failed VRT with links to Wraith comparison screenshots and site links
-   • Provides a one-liner to run once sites have been reviewed/fixed to deploy remaining site updates to LIVE
+   - This process is geared toward Mac users.
+   - The Mac’s Battery/Energy settings are set to power-on and/or wake computer a few minutes before your decided update time, e.g. 6:55am on Thursdays for a 7am update time.
+   - An Apple Calendar repeating event is set, e.g. every Thursday at 7am.  This could have been done with a crontab, but those are deprecated and the new recommended method just seemed overly complex and I liked being able to see it listed in my Calendar along with the pop-up alert and ability to easily change the day using the Calendar UI.
+   - Calendar pops up an alert at the specified date/time and runs an AppleScript.
+   - The AppleScript opens iTerm2 if not already open, opens a new session window and executes a shell script.
+   - The shell script retrieves a list of sites hosted on Pantheon.
+   - It iterates through each site:
+       - applies any upstream updates
+       - fires up Docksal environment
+       - pulls latest code from DEV
+       - runs composer update
+       - pushes code updates to DEV
+       - deploys code updates to TEST with content backsync from LIVE and drush updatedb
+       - runs a Wraith Visual Regression Test (VRT) between TEST and LIVE
+       - deploys code updates to LIVE if VRT passes (adds site to list to review if not)
+   - Provides list of sites that failed VRT with links to Wraith comparison screenshots and site links
+   - Provides a one-liner to run once sites have been reviewed/fixed to deploy remaining site updates to LIVE
 
 ## TODO
    - Create PC equivalents for Calendar, AppleScript, possibly BASH portions (depending on client config)
