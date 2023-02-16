@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>set updateTime to 7(* For some reason, we can't rely on the script only running once at the prescribed time. *)(* So we must put in a run time check in addition to the Calendar call. *)(* Set above to the hour you wish updates to begin (24-hour format), e.g. 3:30pm would be 15.5 *)set currentTime to current dateset startTime to updateTime * 60 * 60if the time of currentTime is greater than startTime and the time of currentTime is less than (startTime + 60) then	if application "iTerm" is not running then		activate application "iTerm"		delay 10	end if		tell application "iTerm"		set newWindow to (create window with default profile)		delay 4		tell current session of newWindow			write text "updatesites"		end tell	end tellend if</string>
+					<string>set updateTime to 7(* For some reason, we can't rely on the script only running once at the prescribed time. *)(* So we must put in a run time check in addition to the Calendar call. *)(* Set updateTime above to the hour you wish updates to begin (24-hour format), e.g. 3:30pm would be 15.5 *)set currentTime to current dateset startTime to updateTime * 60 * 60if the time of currentTime is greater than startTime and the time of currentTime is less than (startTime + 60) then	if application "iTerm" is not running then		activate application "iTerm"		delay 10	end if		tell application "iTerm"		set newWindow to (create window with default profile)		delay 4		tell current session of newWindow			write text "update-sites.sh"		end tell	end tellend if</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -105,7 +105,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>411.000000:555.000000</string>
+				<string>411.000000:587.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
