@@ -55,7 +55,10 @@ for PANTHEON_SITE_NAME in $PANTHEON_SITES; do
         git pull --no-edit origin master
 
         fin start
-        COMPOSER_DISCARD_CHANGES=true composer --no-interaction update -W
+        
+        # Have composer stash any modified files in progress before updating and attempt to re-apply mods afterwards
+        fin config set COMPOSER_DISCARD_CHANGES=stash
+        fin composer --no-interaction update -W
 
         fin drush updb -y
         fin stop
